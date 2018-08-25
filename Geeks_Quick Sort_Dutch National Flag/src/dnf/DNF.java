@@ -56,15 +56,15 @@ public class DNF
 		if(high <= low)
 			return;
 		
-		int l = low,h = high,pivot = a[low],i = low + 1;
-		while(i <= h)
+		int l = low,h = high,pivot = a[low],mid = low + 1;
+		while(mid <= h)
 		{
-			if(a[i] < pivot)
-				swap(a, i++,l++);
-			else if(a[i] == pivot)
-				i++;
+			if(a[mid] < pivot)
+				swap(a, mid++,l++);
+			else if(a[mid] == pivot)
+				mid++;
 			else
-				swap(a,i,h--);
+				swap(a,mid,h--);
 		}
 		partition(a, low, l - 1);
 		partition(a, h + 1, high);
